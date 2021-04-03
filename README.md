@@ -3,9 +3,9 @@
 29th March, 2021- I created a mock atm project.
 A repository of projects I am working on during my Zuri Training.
 
-Projects
-Mock ATM Project
-The user should see the current date and time after they log in
+Projects:
+
+Mock ATM Project: The user should see the current date and time after they log in
 
 When the user selects option 1, they should be presented with the following:
 
