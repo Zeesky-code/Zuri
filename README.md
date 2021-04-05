@@ -1,7 +1,7 @@
 # Zuri
 15th March, 2021 - I started my training on the as a back end trainee specializing in Python.
 29th March, 2021- I created a mock atm project.
-5th March, 2021- I created the basic framework for a full ATM program.
+5th April, 2021- I created the basic framework for a full ATM program.
 A repository of projects I am working on during my Zuri Training.
 
 Projects:
