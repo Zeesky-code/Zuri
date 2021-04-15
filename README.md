@@ -22,7 +22,6 @@ Note: the login feature hasn't been debugged
 
 
 Budget App:
-https://github.com/Zeesky-code/Zuri/blob/main/budget.py
 Create a Budget class that can instantiate objects based on different budget categories like food, clothing, and entertainment. These objects should allow for
 - Depositing funds to each of the categories
 - Withdrawing funds from each category
