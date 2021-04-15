@@ -17,13 +17,15 @@ When the user selects complaint, present them with the following options:
 - What issue will you like to report? (Receive input from the user), output "Thank you for contacting us"
 
 I used lists, dictionary, if and else statements,try and except statements, string methods, input and arithmetic operands.
-Updated the mock ATM to involve airtime transactions and an account balance feature
+**Updated** the mock ATM to involve airtime transactions and an account balance feature
+Note: the login feature hasn't been debugged
 
 
 Budget App:
+https://github.com/Zeesky-code/Zuri/blob/main/budget.py
 Create a Budget class that can instantiate objects based on different budget categories like food, clothing, and entertainment. These objects should allow for
 - Depositing funds to each of the categories
 - Withdrawing funds from each category
 - Computing category balances
 - Transferring balance amounts between categories
-budget.py
+
