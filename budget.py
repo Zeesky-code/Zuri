@@ -5,13 +5,14 @@ class Budget:
     A user can also transfer funds between categories.
     '''
     ##total balance for all categories
-    total_balance = 0
-    def net_balance():
-        print(f'The net balance of your budget categories is {Budget.total_balance}')
-
+    
     def __init__(self, category):
         self.name = category
         self.balance = 0
+    total_balance = 0
+    
+    def net_balance():
+        print(f'The net balance of your budget categories is {Budget.total_balance}')
 
     def deposit(self):
         amount = int(input(f'How much do you want to deposit for {self.name}\n'))
@@ -41,13 +42,14 @@ class Budget:
    
 
 ## categories
+#bills = Budget('Bills')
+#rent = Budget('Rent')
+#other = Budget('Others')
 #food = Budget('Food')
 #transport = Budget('Transportation')
 #clothing = Budget('Clothing')
 #entertain = Budget('Entertainment')
-#bills = Budget('Bills')
-#rent = Budget('Rent')
-#other = Budget('Others')
+
 
 ##tests
 #food.deposit()
