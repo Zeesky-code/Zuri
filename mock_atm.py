@@ -80,7 +80,6 @@ def bank_operations(user):
         print('Invalid option, try again')
         bank_operations(user)
 
-
 def withdraw(user):
     amount = int(input('How much would you like to withdraw? \n'))
     if amount >= user[-1]:
