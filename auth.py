@@ -10,6 +10,7 @@
 
 #Initializing the system
 import random
+import validation
 
 database = {} 
 
@@ -30,45 +31,58 @@ def init():
         print("You have selected an invalid option")
         init()
 
-
+#login 
 def login():
-    
     print("******* Login *******")
-
     accountNumberFromUser = int(input("What is your account number? \n"))
-    password = input("What is your password \n")
+    is_valid_account = validation.account_number_validation(accountNumberFromUser)
+    
+    if is_valid_account: 
+        password = input("What is your password \n")
 
-    for accountNumber,userDetails in database.items():
-        if(accountNumber == accountNumberFromUser):
-            if(userDetails[3] == password):
-                bankOperation(userDetails)
-               
+        for accountNumber,userDetails in database.items():
+            if(accountNumber == accountNumberFromUser):
+                if(userDetails[3] == password):
+                    bankOperation(userDetails)
+            else:
+                print('Invalid account or password')
+                login()   
                 
-    print('Invalid account or password')
-    login()
+    
     
 
-
+#register
 def register():
-
     print("****** Register *******")
-
     email = input("What is your email address? \n")
-    first_name = input("What is your first name? \n")
-    last_name = input("What is your last name? \n")
-    password = input("create a password for yourself \n")
+    is_valid_email = validation.email_validation(email)
+    if is_valid_email:
 
-    accountNumber = generationAccountNumber()
+        first_name = input("What is your first name? \n")
+        is_valid_first_name = validation.first_name_validation(first_name)
+        if is_valid_first_name:
 
-    database[accountNumber] = [ first_name, last_name, email, password ]
+            last_name = input("What is your last name? \n")
+            is_valid_last_name = validation.last_name_validation(last_name)
+            if is_valid_last_name:
 
-    print("Your Account Has been created")
-    print(" == ==== ====== ===== ===")
-    print("Your account number is: %d" % accountNumber)
-    print("Make sure you keep it safe")
-    print(" == ==== ====== ===== ===")
+                password = input("create a password for yourself \n")
+                password = validation.password_validation(password)
+                if is_valid_first_name:
 
-    login()
+                    accountNumber = generationAccountNumber()
+
+                    database[accountNumber] = [ first_name, last_name, email, password ]
+
+                    print("Your Account Has been created")
+                    print(" == ==== ====== ===== ===")
+                    print("Your account number is: %d" % accountNumber)
+                    print("Make sure you keep it safe")
+                    print(" == ==== ====== ===== ===")
+
+                    login()
+    
+        
 
 def bankOperation(user):
 
