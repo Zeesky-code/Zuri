@@ -1,35 +1,22 @@
-#register
-# - first name, last name, password, email
-# - generate user account
-
-#login
-# - account number & password
-
-
-#bank operations
-
-#Initializing the system
 import random
 import validation
 
 database = {} 
 
 def init():
-
-   
     print("Welcome to Bank of Esther ")
  
-    haveAccount = int(input("Do you have account with us: 1 (yes) 2 (no) \n"))
+    haveAccount = input("Do you have account with us: 1 (yes) 2 (no) \n")
+    is_valid_option = validation.init_validation(haveAccount)
 
-    if(haveAccount == 1):
-        
-        login()
-    elif(haveAccount == 2):
-        
-        register()
+    if is_valid_option:
+        if(int(haveAccount) == 1):
+            login()
+        elif(int(haveAccount == 2)):
+            register()
     else:
-        print("You have selected an invalid option")
         init()
+
 
 #login 
 def login():
@@ -38,7 +25,7 @@ def login():
     is_valid_account = validation.account_number_validation(accountNumberFromUser)
     
     if is_valid_account: 
-        password = input("What is your password \n")
+        password = input("What is your password? \n")
 
         for accountNumber,userDetails in database.items():
             if(accountNumber == accountNumberFromUser):
@@ -66,7 +53,7 @@ def register():
             is_valid_last_name = validation.last_name_validation(last_name)
             if is_valid_last_name:
 
-                password = input("create a password for yourself \n")
+                password = input("Create a password: \n")
                 password = validation.password_validation(password)
                 if is_valid_first_name:
 
@@ -88,31 +75,27 @@ def bankOperation(user):
 
     print("Welcome %s %s " % ( user[0], user[1] ) )
 
-    selectedOption = int(input("What would you like to do? (1) deposit (2) withdrawal (3) Logout (4) Exit \n"))
+    selectedOption = int(
+        input("What would you like to do? (1) deposit (2) withdrawal (3) Purchase Airtime (4) Complain (5) Logout \n")
+        )
 
     if(selectedOption == 1):
-        
-        depositOperation()
+        deposit()
     elif(selectedOption == 2):
-        
-        withdrawalOperation()
+        withdrawal()
     elif(selectedOption == 3):
-        
         logout()
-    elif(selectedOption == 4):
-        
-        exit()
     else:
-      
         print("Invalid option selected")
         bankOperation(user)
 
 
 def withdrawalOperation():
-    print("withdrawal")
-
+    withdraw_amount=input('How much would you like to withdraw?')
+    print('Take your cash')
 
 def depositOperation():
+    withdraw_amount=input('How much would you like to deposit?')
     print("Deposit Operations")
 
 
