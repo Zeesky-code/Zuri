@@ -1,6 +1,6 @@
 import random
 import validation
-
+from getpass import getpass #to make the password invisible
 database = {} 
 
 def init():
@@ -8,7 +8,7 @@ def init():
  
     haveAccount = input("Do you have account with us: 1 (yes) 2 (no) \n")
     is_valid_option = validation.init_validation(haveAccount)
-
+    #error with validation 
     if is_valid_option:
         if(int(haveAccount) == 1):
             login()
@@ -25,7 +25,7 @@ def login():
     is_valid_account = validation.account_number_validation(accountNumberFromUser)
     
     if is_valid_account: 
-        password = input("What is your password? \n")
+        password = getpass("What is your password? \n")
 
         for accountNumber,userDetails in database.items():
             if(accountNumber == accountNumberFromUser):
@@ -76,7 +76,8 @@ def bankOperation(user):
     print("Welcome %s %s " % ( user[0], user[1] ) )
 
     selectedOption = int(
-        input("What would you like to do? (1) deposit (2) withdrawal (3) Purchase Airtime (4) Complain (5) Logout \n")
+        input(
+            "What would you like to do? (1) Deposit (2) Withdrawal (3) Purchase Airtime (4) Complain (5) Logout \n")
         )
 
     if(selectedOption == 1):
@@ -84,27 +85,31 @@ def bankOperation(user):
     elif(selectedOption == 2):
         withdrawal()
     elif(selectedOption == 3):
-        logout()
+        airtime()
     else:
         print("Invalid option selected")
         bankOperation(user)
+
+def depositOperation():
+    deposit_amount=input('How much would you like to deposit?')
+    print('You have successfully deposited' + deposit_amount)
 
 
 def withdrawalOperation():
     withdraw_amount=input('How much would you like to withdraw?')
     print('Take your cash')
 
-def depositOperation():
-    withdraw_amount=input('How much would you like to deposit?')
-    print("Deposit Operations")
-
+def airtime():
+    print('What network do you want to purchase?')
+    phone_number = input('Please enter the phone number:  \n' )
+    amount = input('How much airtime do you want to purchase')
+    print('Your purchase of ' + amount + ' to ' + phone_number + ' is successful')
 
 def generationAccountNumber():
-
     return random.randrange(1111111111,9999999999)
 
 def logout():
-    login()
+    init()
 
 #### ACTUAL BANKING SYSTEM #####
 
